@@ -1,0 +1,35 @@
+def shellSort(arr):
+	gap = len(arr) // 2 # inicia o intervalo
+
+	while gap > 0:
+		i = 0
+		j = gap
+		
+		# verifique a matriz da esquerda para a direita
+		# até o último índice possível de j
+		
+		while j < len(arr):
+	
+			if arr[i] >arr[j]:
+				arr[i],arr[j] = arr[j],arr[i]
+			
+			i += 1
+			j += 1
+		
+		# agora não podemos mais nos mover para a esquerda, então
+		# verifica o elemento do último índice de i em direção ao lado esquerdo da matriz
+		while i - gap != -1:
+
+			if arr[i - gap] > arr[i]:
+				arr[i-gap],arr[i] = arr[i],arr[i-gap]
+			i -= 1
+
+		gap //= 2
+
+
+# entrada
+arr2 = [9,8,3,7,5,6,4,1]
+print("Matriz de entrada: ",arr2)
+
+shellSort(arr2)
+print("Matriz ordenada: ",arr2)
